@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/universityinfo/universityinfo",
+    "pages/score/score",
+    "pages/pred/pred"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/index-gray.png",
+        "selectedIconPath": "image/index-pink.png"
+      },
+      {
+        "pagePath": "pages/universityinfo/universityinfo",
+        "text": "学校查询",
+        "iconPath": "image/search-gray.png",
+        "selectedIconPath": "image/search-pink.png"
+      },
+      {
+        "pagePath": "pages/score/score",
+        "text": "录取信息",
+        "iconPath": "image/line-gray.png",
+        "selectedIconPath": "image/line-pink.png"
+      },
+      {
+        "pagePath": "pages/pred/pred",
+        "text": "志愿填报",
+        "iconPath": "image/pred-gray.png",
+        "selectedIconPath": "image/pred-pink.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ececee",
+    "navigationBarTitleText": "Wafer Quick Start",
+    "navigationBarTextStyle": "black"
+  }
+}

@@ -35,4 +35,7 @@ router.post('/message', controllers.message.post)
 // GET 获取学校列表
 router.get('/university_list', controllers.universityList.list)
 
+// GET 获取学校介绍
+router.get('/university_info/:name', controllers.universityList.info)
+
 module.exports = router

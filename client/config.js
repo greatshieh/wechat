@@ -23,7 +23,11 @@ var config = {
         // 上传图片接口
         uploadUrl: `${host}/weapp/upload`,
 
-        productList: `${host}/weapp/university_list`
+        // 获取院校列表
+        universityList: `${host}/weapp/university_list`,
+
+        // 获取院校详情
+        universityInfo: `${host}/weapp/university_info/`
     }
 };
 

@@ -10,7 +10,7 @@ Page({
   data: {
     //学校列表，需要从服务器获得
     array: [],
-    objectArray: [],
+    university: {},
   },
 
   getUniversityList() {
@@ -19,21 +19,21 @@ Page({
     })
 
     qcloud.request({
-      url: config.service.productList,
+      url: config.service.universityList,
       success: result => {
         wx.hideLoading()
 
         let data = result.data.data
-        
+
         var temp = new Array()
 
-        data.forEach(function (element) {
+        data.forEach(function(element) {
           temp.push(element.name)
         })
-        console.log(temp)
+
         if (!data.code) {
           this.setData({
-           array: temp
+            array: temp
           })
         } else {
           wx.showToast({
@@ -108,10 +108,60 @@ Page({
 
   },
 
+  getUniversityInfo(name) {
+    wx.showLoading({
+      title: '加载院校介绍...',
+    })
+
+    qcloud.request({
+      url: config.service.universityInfo + name,
+      success: result => {
+        wx.hideLoading()
+
+        let data = result.data.data
+
+        if (!data.code) {
+          this.setData({
+            university: data
+          })
+          this.showList(data)
+        } else {
+          setTimeout(() => {
+            wx.navigateBack()
+          }, 2000)
+        }
+      },
+      fail: () => {
+        wx.hideLoading()
+
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 2000)
+      }
+    })
+  },
+
+  showList(data) {
+    for (var info in data){
+      if (data[info] == null){
+        console.log(info)
+      }else{
+        console.log(data[info])
+      }
+    }
+  },
+
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
+
+    var index = e.detail.value
+
     this.setData({
       index: e.detail.value
     })
-  },
+
+    var name = this.data.array[index]
+
+    this.getUniversityInfo(name)
+  }
 })

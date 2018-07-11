@@ -1,1 +1,16 @@
-<text>infomation</text>
+<view class="section">
+  <view class="section__title">请选择学校</view>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      当前选择：{{array[index]}}
+    </view>
+  </picker>
+</view>
+<view>
+<text>学校名称:</text>
+<text>{{array[index]}}</text>
+</view>
+<view>
+<text>学校层级:</text>
+<text>{{array[index]}}</text>
+</view>

@@ -4,7 +4,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    array: ['南开大学', '西安交通大学', '吉林大学', '南京大学', '华中科技大学'],
+    objectArray: [
+      {
+        id: 1,
+        name: '南开大学'
+      },
+      {
+        id: 2,
+        name: '西安交通大学'
+      },
+      {
+        id: 3,
+        name: '吉林大学'
+      },
+      {
+        id: 4,
+        name: '南京大学'
+      },
+      {
+        id: 5,
+        name: '华中科技大学'
+      }
+    ]
   },
 
   /**
@@ -61,5 +83,12 @@ Page({
    */
   onShareAppMessage: function () {
     
-  }
+  },
+
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
 })

@@ -32,5 +32,7 @@ router.get('/message', controllers.message.get)
 // POST 用来处理微信转发过来的客服消息
 router.post('/message', controllers.message.post)
 
-router.get('/universityinfo', controllers.universityinfo.list)
+// GET 获取学校列表
+router.get('/university_list', controllers.universityList.list)
+
 module.exports = router
